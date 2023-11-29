@@ -4,6 +4,8 @@
  */
 package halallabirintus;
 
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author KádárKristófPéter(SZ
@@ -26,22 +28,89 @@ public class HalalLabirintus extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        label_cim = new javax.swing.JLabel();
+        label_kezdes = new javax.swing.JButton();
+        label_kilepes = new javax.swing.JButton();
+        button_stablista = new javax.swing.JButton();
+        label_mezo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(600, 370));
+        setResizable(false);
+        getContentPane().setLayout(null);
+
+        label_cim.setFont(new java.awt.Font("Viner Hand ITC", 3, 48)); // NOI18N
+        label_cim.setForeground(new java.awt.Color(153, 0, 0));
+        label_cim.setText("Halál Labirintus");
+        getContentPane().add(label_cim);
+        label_cim.setBounds(90, 50, 420, 80);
+
+        label_kezdes.setText("Játék kezdés");
+        label_kezdes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                label_kezdesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(label_kezdes);
+        label_kezdes.setBounds(130, 270, 110, 40);
+
+        label_kilepes.setText("Kilépés");
+        label_kilepes.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                label_kilepesActionPerformed(evt);
+            }
+        });
+        getContentPane().add(label_kilepes);
+        label_kilepes.setBounds(380, 270, 110, 40);
+
+        button_stablista.setText("Stáblista");
+        button_stablista.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                button_stablistaActionPerformed(evt);
+            }
+        });
+        getContentPane().add(button_stablista);
+        button_stablista.setBounds(270, 280, 90, 23);
+
+        label_mezo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/kepek/mezo.jpg"))); // NOI18N
+        getContentPane().add(label_mezo);
+        label_mezo.setBounds(0, 0, 587, 330);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void button_stablistaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_button_stablistaActionPerformed
+        JOptionPane.showMessageDialog(rootPane, "Tar Gergő\nKépiró Balázs\nKádár Kristóf");
+    }//GEN-LAST:event_button_stablistaActionPerformed
+
+    private void label_kilepesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_label_kilepesActionPerformed
+        kilepes();
+    }//GEN-LAST:event_label_kilepesActionPerformed
+
+    private void label_kezdesActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_label_kezdesActionPerformed
+        dispose();
+        JatekArena pi = new JatekArena();
+        pi.setVisible(true);
+    }//GEN-LAST:event_label_kezdesActionPerformed
+    
+    
+    private void kilepes() {
+        //System.exit(0);
+        //int gomb = JOptionPane.showConfirmDialog(rootPane,"Biztosan kilép?");
+        
+        String kerdes = "Biztosan kilép?";
+        String cim = "KILÉPÉS";
+        int gombokTipusa = JOptionPane.OK_CANCEL_OPTION;
+        
+        int gomb = JOptionPane.showConfirmDialog(rootPane,kerdes,cim,gombokTipusa);
+        //System.out.println("gomb = " + gomb);
+        
+        if (gomb == JOptionPane.OK_OPTION) {
+            System.exit(0);
+        }
+    }
+    
     /**
      * @param args the command line arguments
      */
@@ -78,5 +147,10 @@ public class HalalLabirintus extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton button_stablista;
+    private javax.swing.JLabel label_cim;
+    private javax.swing.JButton label_kezdes;
+    private javax.swing.JButton label_kilepes;
+    private javax.swing.JLabel label_mezo;
     // End of variables declaration//GEN-END:variables
 }
