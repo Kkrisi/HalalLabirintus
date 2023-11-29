@@ -1,4 +1,4 @@
 # HalalLabirintus
-Tar Gergő
-Képiró Balázs
+Tar Gergő/
+Képiró Balázs/
 Kádár Kristóf
