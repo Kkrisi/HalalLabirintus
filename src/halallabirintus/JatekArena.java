@@ -4,15 +4,23 @@
  */
 package halallabirintus;
 
-/**
- *
- * @author KádárKristófPéter(SZ
- */
-public class JatekArena extends javax.swing.JFrame {
+import java.util.ArrayList;
 
-    /**
-     * Creates new form JatekArena
-     */
+public class JatekArena extends javax.swing.JFrame {
+    
+    String[] szovegLista = {
+        "Miután öt percet haladtál lassan az alagútban, egy kőasztalhoz érsz, amely a bal oldali fal mellett áll. Hat doboz van rajta, egyikükre a te neved festették. Ha kiakarod nyitni a dobozt, lapozz a 270-re. Ha inkább tovább haladsz észak felé, lapozz a 66-ra.",
+        "Látod, hogy az akadály egy széles, barna, sziklaszerű tárgy. Megérinted, és meglepve tapasztalod, hogy lágy, szivacsszerű. Ha át szeretnél mászni rajta, lapozz a 373-ra. Ha ketté akarod vágni a kardoddal, lapozz a 215-re.",
+        "Néhány perc gyaloglás után egy elágazáshoz érsz az alagútban. Egy, a falra festett fehér nyíl nyugatfelé mutat. A földön nedves lábnyomok jelzik, merre haladtak az előtted járók. Nehéz biztosan megmondani, de úgy tűnik, hogy három közülük a nyíl irányába halad, míg egyikük úgy döntött, hogy keletnek megy. Ha nyugat felé kívánsz menni, lapozz a 293-ra. Ha keletnek, lapozz a 56-re.",
+        "Ahogy végigmész az alagúton, csodálkozva látod, hogy egy jókora vasharang csüng alá a boltozatról.",
+        "Kardod könnyedén áthatol a spóragolyó vékonykülső burkán. Sűrű barna spórafelhő csap ki a golyóból, és körülvesz. Némelyik spóra a bőrödhöz tapad, és rettenetes viszketést okoz. Nagy daganatok nőnek az arcodon és karodon, és a bőröd mintha égne. 2 ÉLETERŐ pontot veszítesz. Vadul vakarózva átléped a leeresztett golyót, és keletnek veszed az utad.",
+        "A doboz teteje könnyedén nyílik. Benne két aranypénzt találsz, és egy üzenetet, amely egy kis pergamenen neked szól. Előbb zsebre vágod az aranyakat, aztán elolvasod az üzenetet: - „Jól tetted. Legalább volt annyi eszed, hogy megállj és elfogadd az ajándékot. Most azt tanácsolom neked, hogy keress és használj különféle tárgyakat, ha sikerrel akarsz áthaladni Halállabirintusomon.” Azaláírás Szukumvit. Megjegyzed a tanácsot, apródarabokra téped a pergament, és tovább mészészak felé. Lapozz a 66-ra.",
+        "A három pár nedves lábnyomot követve az alagútnyugati elágazásában hamarosan egy újabb el-ágazáshoz érsz. Ha továbbmész nyugat felé a lábnyomokat követve, lapozz a 137-re. Ha inkább észak felé mész a harmadik pár lábnyom után, lapozz a 387-re.",
+        "Fölmászol a lágy sziklára, attól tartasz, hogy bár-melyik pillanatban elnyelhet. Nehéz átvergődni rajta, mert puha anyagában alig tudod a lábadat emelni, de végül átvergődsz rajta. Megkönnyebbülten érsz újra szilárd talajra, és fordulsz kelet felé.",
+        "Hallod, hogy elölről súlyos lépések közelednek. Egy széles, állatbőrökbe öltözött, kőbaltás, primitívlény lép elő. Ahogy meglát, morog, a földre köp, majd a kőbaltát felemelve közeledik, és mindennek kinéz, csak barátságosnak nem. Előhúzod kardodat, és felkészülsz, hogy megküzdj a Barlangi Emberrel.\n"
+        + "Barlangi Ember ÜGYESSÉG 7 ÉLETERŐ 7"
+    };
+    
     public JatekArena() {
         initComponents();
     }
@@ -27,37 +35,42 @@ public class JatekArena extends javax.swing.JFrame {
     private void initComponents() {
 
         jScrollPane2 = new javax.swing.JScrollPane();
-        jTextArea2 = new javax.swing.JTextArea();
+        szovegTxtA = new javax.swing.JTextArea();
         jPanel1 = new javax.swing.JPanel();
-        Jbutton_B = new javax.swing.JToggleButton();
-        Jbutton_A = new javax.swing.JToggleButton();
-        jProgressBar1 = new javax.swing.JProgressBar();
-        jbutton_inventory = new javax.swing.JToggleButton();
+        Aopcio = new javax.swing.JButton();
+        Bopcio = new javax.swing.JButton();
+        label_oldalszam = new javax.swing.JLabel();
+        jPanel2 = new javax.swing.JPanel();
+        pbar_szerencse = new javax.swing.JProgressBar();
+        pbar_ugyesseg = new javax.swing.JProgressBar();
+        pbar_eletero = new javax.swing.JProgressBar();
+        cbox_hatizsak = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(500, 340));
+        setPreferredSize(new java.awt.Dimension(400, 440));
         getContentPane().setLayout(null);
 
-        jTextArea2.setEditable(false);
-        jTextArea2.setColumns(20);
-        jTextArea2.setLineWrap(true);
-        jTextArea2.setRows(5);
-        jTextArea2.setText("Miután öt percet haladtál lassan az alagútban, egy kőasztalhoz érsz, amely a bal oldali fal mellett áll. Hat doboz van rajta, egyikükre a te neved festették. Ha kiakarod nyitni a dobozt, lapozz a 270-re. Ha inkább tovább haladsz észak felé, lapozz a 66-ra.");
-        jTextArea2.setWrapStyleWord(true);
-        jScrollPane2.setViewportView(jTextArea2);
+        szovegTxtA.setEditable(false);
+        szovegTxtA.setColumns(20);
+        szovegTxtA.setLineWrap(true);
+        szovegTxtA.setRows(5);
+        szovegTxtA.setWrapStyleWord(true);
+        jScrollPane2.setViewportView(szovegTxtA);
 
         getContentPane().add(jScrollPane2);
         jScrollPane2.setBounds(10, 10, 370, 160);
 
-        Jbutton_B.setText("jToggleButton1");
+        Aopcio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                AopcioActionPerformed(evt);
+            }
+        });
 
-        Jbutton_A.setText("jToggleButton1");
-
-        jProgressBar1.setMinimum(50);
-        jProgressBar1.setValue(50);
-        jProgressBar1.setBorder(javax.swing.BorderFactory.createTitledBorder("HP"));
-
-        jbutton_inventory.setText("BATYU");
+        Bopcio.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                BopcioActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
@@ -65,34 +78,136 @@ public class JatekArena extends javax.swing.JFrame {
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(Jbutton_A)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
-                .addComponent(Jbutton_B)
-                .addGap(18, 18, 18))
-            .addGroup(jPanel1Layout.createSequentialGroup()
-                .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(jbutton_inventory))
+                .addComponent(Aopcio)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 174, Short.MAX_VALUE)
+                .addComponent(Bopcio)
+                .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
-                .addGap(26, 26, 26)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(Jbutton_B, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(Jbutton_A, javax.swing.GroupLayout.PREFERRED_SIZE, 20, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                    .addComponent(jProgressBar1, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jbutton_inventory))
-                .addContainerGap(52, Short.MAX_VALUE))
+                .addContainerGap()
+                .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(Bopcio, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(Aopcio, javax.swing.GroupLayout.PREFERRED_SIZE, 23, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         getContentPane().add(jPanel1);
-        jPanel1.setBounds(30, 180, 300, 150);
+        jPanel1.setBounds(30, 180, 330, 50);
+
+        label_oldalszam.setText("1");
+        getContentPane().add(label_oldalszam);
+        label_oldalszam.setBounds(360, 380, 30, 16);
+
+        pbar_szerencse.setMinimum(50);
+        pbar_szerencse.setBorder(javax.swing.BorderFactory.createTitledBorder("Szerencse"));
+
+        pbar_ugyesseg.setMinimum(50);
+        pbar_ugyesseg.setBorder(javax.swing.BorderFactory.createTitledBorder("Ügyesség"));
+
+        pbar_eletero.setForeground(new java.awt.Color(255, 51, 0));
+        pbar_eletero.setMaximum(15);
+        pbar_eletero.setMinimum(5);
+        pbar_eletero.setValue(5);
+        pbar_eletero.setBorder(javax.swing.BorderFactory.createTitledBorder("Életerő"));
+
+        cbox_hatizsak.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "Hátizsák tartalma" }));
+
+        javax.swing.GroupLayout jPanel2Layout = new javax.swing.GroupLayout(jPanel2);
+        jPanel2.setLayout(jPanel2Layout);
+        jPanel2Layout.setHorizontalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(pbar_ugyesseg, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(cbox_hatizsak, javax.swing.GroupLayout.PREFERRED_SIZE, 140, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addComponent(pbar_eletero, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(pbar_szerencse, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(18, Short.MAX_VALUE))
+        );
+        jPanel2Layout.setVerticalGroup(
+            jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(jPanel2Layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pbar_eletero, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(pbar_szerencse, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 26, Short.MAX_VALUE)
+                .addGroup(jPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pbar_ugyesseg, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(jPanel2Layout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(cbox_hatizsak, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(28, 28, 28))
+        );
+
+        getContentPane().add(jPanel2);
+        jPanel2.setBounds(30, 230, 350, 140);
 
         pack();
+        setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
+
+    private void AopcioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_AopcioActionPerformed
+        String oldalSzam = label_oldalszam.getText();
+        if (oldalSzam.equals("1")) {
+            szovegTxtA.setText(szovegLista[0]);
+            Aopcio.setText("270");
+            Bopcio.setText("66");
+            
+        }
+        if (oldalSzam.equals("66")){
+            szovegTxtA.setText(szovegLista[2]);
+            Aopcio.setText("293");
+            Bopcio.setText("215");
+            
+        }
+        if (oldalSzam.equals("270")){
+            szovegTxtA.setText(szovegLista[5]);
+            Aopcio.setText("66");
+            Bopcio.setEnabled(false);
+        }
+        if (oldalSzam.equals("293")){
+            szovegTxtA.setText(szovegLista[6]);
+            Aopcio.setText("137");
+            Bopcio.setText("387");
+        }
+        if (oldalSzam.equals("56")){
+            szovegTxtA.setText(szovegLista[1]);
+            Aopcio.setText("373");
+            Bopcio.setText("215");
+        }
+        if (oldalSzam.equals("373")){
+            szovegTxtA.setText(szovegLista[7]);
+            Aopcio.setEnabled(false);
+            Bopcio.setEnabled(false);
+        }
+        if (oldalSzam.equals("387")){
+            szovegTxtA.setText(szovegLista[8]);
+            Aopcio.setEnabled(false);
+            Bopcio.setEnabled(false);
+        }
+        if (oldalSzam.equals("215")){
+            szovegTxtA.setText(szovegLista[4]);
+            Aopcio.setEnabled(false);
+            Bopcio.setEnabled(false);
+        }
+        if (oldalSzam.equals("137")){
+            szovegTxtA.setText(szovegLista[3]);
+            Aopcio.setEnabled(false);
+            Bopcio.setEnabled(false);
+        }       
+    }//GEN-LAST:event_AopcioActionPerformed
+
+    private void BopcioActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_BopcioActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_BopcioActionPerformed
 
     /**
      * @param args the command line arguments
@@ -128,14 +243,20 @@ public class JatekArena extends javax.swing.JFrame {
             }
         });
     }
+    
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JToggleButton Jbutton_A;
-    private javax.swing.JToggleButton Jbutton_B;
+    private javax.swing.JButton Aopcio;
+    private javax.swing.JButton Bopcio;
+    private javax.swing.JComboBox<String> cbox_hatizsak;
     private javax.swing.JPanel jPanel1;
-    private javax.swing.JProgressBar jProgressBar1;
+    private javax.swing.JPanel jPanel2;
     private javax.swing.JScrollPane jScrollPane2;
-    private javax.swing.JTextArea jTextArea2;
-    private javax.swing.JToggleButton jbutton_inventory;
+    private javax.swing.JLabel label_oldalszam;
+    private javax.swing.JProgressBar pbar_eletero;
+    private javax.swing.JProgressBar pbar_szerencse;
+    private javax.swing.JProgressBar pbar_ugyesseg;
+    private javax.swing.JTextArea szovegTxtA;
     // End of variables declaration//GEN-END:variables
 }
